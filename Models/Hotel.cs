@@ -15,7 +15,7 @@ namespace BookingClone.Models
         public string Address { get; set; }
         
         
-        [Url (ErrorMessage = "Nije dobar format web adrese")]
+        [StringLength (255, ErrorMessage = "Nije dobar format web adrese")]
         public string WebAddress { get; set; }
         
         

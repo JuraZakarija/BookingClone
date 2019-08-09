@@ -32,9 +32,6 @@ namespace BookingClone.DB
             // many to many 
 
             modelBuilder.Entity<Booking>()
-                .HasKey(r => new { r.AgencyId, r.GuestId, r.HotelId, r.PaymentId, r.RoomId, });
-
-            modelBuilder.Entity<Booking>()
                 .HasOne(r => r.Agency)
                 .WithMany(g => g.Bookings)
                 .HasForeignKey(r => r.AgencyId);

@@ -14,7 +14,7 @@ namespace BookingClone.Models
         [Required (ErrorMessage = "Morate unijeti iznos provizije")]
         [Column(TypeName = "decimal(5,2)")]
         [Range(0, 999.99, ErrorMessage = "Provizija mora biti između 0 i 99 %")]
-        public decimal Commission { get; set; }
+        public decimal? Commission { get; set; }
 
         public ICollection<Booking> Bookings { get; set; }
     }

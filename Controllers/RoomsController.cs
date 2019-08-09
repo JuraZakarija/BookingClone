@@ -65,7 +65,7 @@ namespace BookingClone.Controllers
             return NoContent();
         }
 
-        // DELETE api/rooms /5
+        // DELETE api/rooms/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoomItem(int id)
         {
