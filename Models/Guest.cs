@@ -6,14 +6,7 @@ using Newtonsoft.Json;
 namespace BookingClone.Models
 {
     public class Guest : BaseModel
-    {    
-        // Foreign key
-        public int PaymentId { get; set; }
-
-        [JsonIgnore]
-        public Payment Payment { get; set; }
-        
-
+    {         
         [Required (ErrorMessage = "Morate unijeti ime gosta")]
         [MaxLength(100, ErrorMessage = "Ime gosta mora biti kraća od 100 znakova")]
         public string FirstName { get; set; }

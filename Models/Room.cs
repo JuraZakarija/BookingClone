@@ -25,6 +25,12 @@ namespace BookingClone.Models
 
         [MaxLength(100, ErrorMessage = "Ime tipa sobe mora biti kraće od 100 znakova")]
         public string Type { get; set; }
+        
+
+        [Required (ErrorMessage = "Morate unijeti cijenu noćenja")]
+        [Range(0, 99999999.99, ErrorMessage = "Cijena noćenja ne može biti negativna")]
+
+        public decimal PricePerNight { get; set; }
 
         public ICollection<Booking> Bookings { get; set; }
 

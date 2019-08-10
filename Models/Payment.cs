@@ -6,11 +6,17 @@ namespace BookingClone.Models
 {
     public class Payment : BaseModel
     {
+
+        Room room = new Room();
+        Booking booking = new Booking();
+        
         [Required (ErrorMessage = "Morate unijeti iznos osnovice")]
         [Column(TypeName = "decimal(10,2)")]
         [Range(0, 99999999.99, ErrorMessage = "Osnovica ne može biti negativna")]
+        public decimal Price { 
+            get{ return room.PricePerNight * (booking.CheckOut - booking.CheckIn).Days; }
+        }
 
-        public decimal Price { get; set; }
 
 
         [Required (ErrorMessage = "Morate unijeti iznos marže")]
@@ -21,8 +27,6 @@ namespace BookingClone.Models
 
         [Column(TypeName = "decimal(10,2)")]
         [Range(0, 99999999.99, ErrorMessage = "Ukupna cijena ne može biti negativna")]
-
-        
         public decimal Total {
             get { return Price * (1 + Margin / 100); }
         }

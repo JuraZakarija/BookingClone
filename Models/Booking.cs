@@ -20,10 +20,7 @@ namespace BookingClone.Models
 
         [JsonIgnore]
         public Room Room { get; set; }
-        public int HotelId { get; set; }
 
-        [JsonIgnore]
-        public Hotel Hotel { get; set; }
         public int PaymentId {get; set; }
         
         [JsonIgnore]

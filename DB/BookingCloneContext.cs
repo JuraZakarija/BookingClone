@@ -40,11 +40,6 @@ namespace BookingClone.DB
                 .HasOne(r => r.Guest)
                 .WithMany(g => g.Bookings)
                 .HasForeignKey(r => r.GuestId);
-            
-            modelBuilder.Entity<Booking>()
-                .HasOne(r => r.Hotel)
-                .WithMany(g => g.Bookings)
-                .HasForeignKey(r => r.HotelId);
 
             modelBuilder.Entity<Booking>()
                 .HasOne(r => r.Payment)

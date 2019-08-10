@@ -12,10 +12,10 @@ namespace BookingClone.Extensions
         {
             Agencies(modelBuilder);
             Hotels(modelBuilder);
-            Payments(modelBuilder);
             Rooms(modelBuilder);
             Guests(modelBuilder);
             Bookings(modelBuilder);
+            Payments(modelBuilder);
         }
 
         public static void Agencies(ModelBuilder modelBuilder)
@@ -57,8 +57,7 @@ namespace BookingClone.Extensions
                 new Booking()
                 { 
                     Id = 1, 
-                    AgencyId = 1, 
-                    HotelId = 1, 
+                    AgencyId = 1,
                     PaymentId = 1, 
                     RoomId = 1, 
                     GuestId = 1, 
@@ -69,8 +68,7 @@ namespace BookingClone.Extensions
                 new Booking()
                 { 
                     Id = 2, 
-                    AgencyId = 2, 
-                    HotelId = 2, 
+                    AgencyId = 2,
                     PaymentId = 2, 
                     RoomId = 2, 
                     GuestId = 2, 
@@ -82,7 +80,6 @@ namespace BookingClone.Extensions
                 { 
                     Id = 3, 
                     AgencyId = 3, 
-                    HotelId = 3, 
                     PaymentId = 3, 
                     RoomId = 3, 
                     GuestId = 3, 
@@ -94,7 +91,6 @@ namespace BookingClone.Extensions
                 { 
                     Id = 4, 
                     AgencyId = 4, 
-                    HotelId = 4, 
                     PaymentId = 4, 
                     RoomId = 4, 
                     GuestId = 4,
@@ -110,7 +106,6 @@ namespace BookingClone.Extensions
                 new Guest()
                 { 
                     Id = 1, 
-                    PaymentId = 1, 
                     FirstName = "Rade", 
                     LastName = "Končar", 
                     Gender = "M"
@@ -119,7 +114,6 @@ namespace BookingClone.Extensions
                 new Guest()
                 { 
                     Id = 2, 
-                    PaymentId = 2, 
                     FirstName = "Ante", 
                     LastName = "Mastelić", 
                     Gender = "M"
@@ -128,7 +122,6 @@ namespace BookingClone.Extensions
                 new Guest()
                 { 
                     Id = 3, 
-                    PaymentId = 3, 
                     FirstName = "Mia", 
                     LastName = "Dimšić", 
                     Gender = "F"
@@ -137,7 +130,6 @@ namespace BookingClone.Extensions
                 new Guest()
                 { 
                     Id = 4, 
-                    PaymentId = 4, 
                     FirstName = "Hrvoje", 
                     LastName = "Horvat", 
                     Gender = "M"
@@ -192,28 +184,24 @@ namespace BookingClone.Extensions
                 new Payment()
                 {
                     Id = 1, 
-                    Price = 546.00m, 
                     Margin = 25.00m
                 },
 
                 new Payment()
                 {
                     Id = 2, 
-                    Price = 420.00m, 
                     Margin = 40.00m
                 },
 
                 new Payment()
                 {
-                    Id = 3, 
-                    Price = 380.00m, 
+                    Id = 3,
                     Margin = 20.00m 
                 },
 
                 new Payment()
                 {
                     Id = 4, 
-                    Price = 620.00m, 
                     Margin = 35.00m
                 } 
             );
@@ -228,7 +216,8 @@ namespace BookingClone.Extensions
                     HotelId = 1, 
                     Size = 34.42m, 
                     NumberOfBeds = 2, 
-                    Type = "Double"
+                    Type = "Double",
+                    PricePerNight = 100.00m,
                 },
 
                 new Room()
@@ -237,7 +226,8 @@ namespace BookingClone.Extensions
                     HotelId = 2, 
                     Size = 42.12m, 
                     NumberOfBeds = 2, 
-                    Type = "Suite"
+                    Type = "Suite",
+                    PricePerNight = 200.00m,
                 },
 
                 new Room()
@@ -246,7 +236,8 @@ namespace BookingClone.Extensions
                     HotelId = 3, 
                     Size = 54.66m, 
                     NumberOfBeds = 4, 
-                    Type = "Quad"
+                    Type = "Quad",
+                    PricePerNight = 300.00m,
                 },
 
                 new Room()
@@ -255,7 +246,8 @@ namespace BookingClone.Extensions
                     HotelId = 4, 
                     Size = 73.81m, 
                     NumberOfBeds = 4, 
-                    Type = "Executive"
+                    Type = "Executive",
+                    PricePerNight = 400.00m,
                 }
             );
         }
