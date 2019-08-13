@@ -21,11 +21,6 @@ namespace BookingClone.Models
         [JsonIgnore]
         public Room Room { get; set; }
 
-        public int PaymentId {get; set; }
-        
-        [JsonIgnore]
-        public Payment Payment { get; set; }
-
 
         [Required (ErrorMessage = "Morate unijeti datum prijave")]
         [DataType(DataType.Date, ErrorMessage = "Krivi format datuma")]

@@ -29,28 +29,6 @@ namespace BookingClone.DB
             foreach (var fk in cascadeFKs)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
 
-            // many to many 
-
-            modelBuilder.Entity<Booking>()
-                .HasOne(r => r.Agency)
-                .WithMany(g => g.Bookings)
-                .HasForeignKey(r => r.AgencyId);
-
-            modelBuilder.Entity<Booking>()
-                .HasOne(r => r.Guest)
-                .WithMany(g => g.Bookings)
-                .HasForeignKey(r => r.GuestId);
-
-            modelBuilder.Entity<Booking>()
-                .HasOne(r => r.Payment)
-                .WithMany(g => g.Bookings)
-                .HasForeignKey(r => r.PaymentId);
-
-            modelBuilder.Entity<Booking>()
-                .HasOne(r => r.Room)
-                .WithMany(g => g.Bookings)
-                .HasForeignKey(r => r.RoomId);
-
 
             modelBuilder.Entity<Agency>()
                 .HasIndex(u => u.Name)
@@ -63,7 +41,7 @@ namespace BookingClone.DB
                 .HasIndex(u => u.Name)
                 .IsUnique();
 
-            modelBuilder.SoftDeleteSetup();
+            //modelBuilder.SoftDeleteSetup();
 
             modelBuilder.Seed();
         }

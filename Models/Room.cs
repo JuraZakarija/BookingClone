@@ -9,7 +9,6 @@ namespace BookingClone.Models
     {
         // Foreign keys
         public int HotelId { get; set; }
-
         [JsonIgnore]
         public Hotel Hotel { get; set; }
 
@@ -17,6 +16,7 @@ namespace BookingClone.Models
         [Column(TypeName = "decimal(6,2)")]
         [Range(0, 2000.00, ErrorMessage = "Veličina sobe mora bit između 0 i 2000 metara kvadratnih")]
         public decimal Size { get; set; }
+
 
         [Required (ErrorMessage = "Morate unijeti broj kreveta")]
         [Range(0, 20, ErrorMessage = "Soba može imati do 20 kreveta")]
@@ -28,8 +28,8 @@ namespace BookingClone.Models
         
 
         [Required (ErrorMessage = "Morate unijeti cijenu noćenja")]
+        [Column(TypeName = "decimal(10,2)")]
         [Range(0, 99999999.99, ErrorMessage = "Cijena noćenja ne može biti negativna")]
-
         public decimal PricePerNight { get; set; }
 
         public ICollection<Booking> Bookings { get; set; }

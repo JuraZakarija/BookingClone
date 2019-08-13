@@ -58,7 +58,6 @@ namespace BookingClone.Extensions
                 { 
                     Id = 1, 
                     AgencyId = 1,
-                    PaymentId = 1, 
                     RoomId = 1, 
                     GuestId = 1, 
                     CheckIn = DateTime.Parse("2019-01-01"), 
@@ -69,7 +68,6 @@ namespace BookingClone.Extensions
                 { 
                     Id = 2, 
                     AgencyId = 2,
-                    PaymentId = 2, 
                     RoomId = 2, 
                     GuestId = 2, 
                     CheckIn = DateTime.Parse("2019-02-01"), 
@@ -80,7 +78,6 @@ namespace BookingClone.Extensions
                 { 
                     Id = 3, 
                     AgencyId = 3, 
-                    PaymentId = 3, 
                     RoomId = 3, 
                     GuestId = 3, 
                     CheckIn = DateTime.Parse("2019-03-01"), 
@@ -90,8 +87,7 @@ namespace BookingClone.Extensions
                 new Booking()
                 { 
                     Id = 4, 
-                    AgencyId = 4, 
-                    PaymentId = 4, 
+                    AgencyId = 4,
                     RoomId = 4, 
                     GuestId = 4,
                     CheckIn = DateTime.Parse("2019-04-01"), 
@@ -108,15 +104,21 @@ namespace BookingClone.Extensions
                     Id = 1, 
                     FirstName = "Rade", 
                     LastName = "Končar", 
-                    Gender = "M"
+                    Birthdate = DateTime.Parse("1987-06-11"), 
+                    Gender = "M",
+                    PhoneNumber = "0917453456",
+                    Email = "radekoncar@gmail.com",
                 },
                 
                 new Guest()
                 { 
                     Id = 2, 
                     FirstName = "Ante", 
-                    LastName = "Mastelić", 
-                    Gender = "M"
+                    LastName = "Mastelić",
+                    Birthdate = DateTime.Parse("1982-03-22"),                      
+                    Gender = "M",
+                    PhoneNumber = "0924567484",
+                    Email = "antemastelic@gmail.com",
                 },
 
                 new Guest()
@@ -124,7 +126,10 @@ namespace BookingClone.Extensions
                     Id = 3, 
                     FirstName = "Mia", 
                     LastName = "Dimšić", 
-                    Gender = "F"
+                    Birthdate = DateTime.Parse("1991-02-11"),                      
+                    Gender = "F",
+                    PhoneNumber = "0959375035",
+                    Email = "miadimsic@hotmail.com",
                 },
 
                 new Guest()
@@ -132,7 +137,10 @@ namespace BookingClone.Extensions
                     Id = 4, 
                     FirstName = "Hrvoje", 
                     LastName = "Horvat", 
-                    Gender = "M"
+                    Birthdate = DateTime.Parse("1982-09-13"),
+                    Gender = "M",
+                    PhoneNumber = "0983765905",
+                    Email = "hrvojehorvat@hotmail.com",
                 }
             );
         }
@@ -183,26 +191,30 @@ namespace BookingClone.Extensions
             modelBuilder.Entity<Payment>().HasData(
                 new Payment()
                 {
-                    Id = 1, 
-                    Margin = 25.00m
+                    Id = 1,
+                    AgencyId = 1,
+                    GuestId = 1 
                 },
 
                 new Payment()
                 {
-                    Id = 2, 
-                    Margin = 40.00m
+                    Id = 2,
+                    AgencyId = 2,
+                    GuestId = 2 
                 },
 
                 new Payment()
                 {
                     Id = 3,
-                    Margin = 20.00m 
+                    AgencyId = 3,
+                    GuestId = 3
                 },
 
                 new Payment()
                 {
-                    Id = 4, 
-                    Margin = 35.00m
+                    Id = 4,
+                    AgencyId = 4,
+                    GuestId = 4 
                 } 
             );
         }

@@ -25,9 +25,8 @@ namespace BookingClone.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal?>("Commission")
-                        .IsRequired()
-                        .HasColumnType("decimal(5,2)");
+                    b.Property<decimal>("Commission")
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -51,7 +50,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 1,
                             Commission = 15.00m,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(1839),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 773, DateTimeKind.Utc).AddTicks(9158),
                             IsDeleted = false,
                             Name = "Todoric"
                         },
@@ -59,7 +58,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 2,
                             Commission = 20.00m,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(2636),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 775, DateTimeKind.Utc).AddTicks(270),
                             IsDeleted = false,
                             Name = "Airbnb"
                         },
@@ -67,7 +66,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 3,
                             Commission = 23.00m,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(2645),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 775, DateTimeKind.Utc).AddTicks(293),
                             IsDeleted = false,
                             Name = "Booking"
                         },
@@ -75,7 +74,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 4,
                             Commission = 17.50m,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(2646),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 775, DateTimeKind.Utc).AddTicks(294),
                             IsDeleted = false,
                             Name = "Trivago"
                         });
@@ -99,7 +98,7 @@ namespace BookingClone.Migrations
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<int>("PaymentId");
+                    b.Property<int?>("PaymentId");
 
                     b.Property<int>("RoomId");
 
@@ -124,10 +123,9 @@ namespace BookingClone.Migrations
                             AgencyId = 1,
                             CheckIn = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(1854),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 784, DateTimeKind.Utc).AddTicks(384),
                             GuestId = 1,
                             IsDeleted = false,
-                            PaymentId = 1,
                             RoomId = 1
                         },
                         new
@@ -136,10 +134,9 @@ namespace BookingClone.Migrations
                             AgencyId = 2,
                             CheckIn = new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(6034),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 784, DateTimeKind.Utc).AddTicks(3478),
                             GuestId = 2,
                             IsDeleted = false,
-                            PaymentId = 2,
                             RoomId = 2
                         },
                         new
@@ -148,10 +145,9 @@ namespace BookingClone.Migrations
                             AgencyId = 3,
                             CheckIn = new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(6067),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 784, DateTimeKind.Utc).AddTicks(3562),
                             GuestId = 3,
                             IsDeleted = false,
-                            PaymentId = 3,
                             RoomId = 3
                         },
                         new
@@ -160,10 +156,9 @@ namespace BookingClone.Migrations
                             AgencyId = 4,
                             CheckIn = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(6073),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 784, DateTimeKind.Utc).AddTicks(3578),
                             GuestId = 4,
                             IsDeleted = false,
-                            PaymentId = 4,
                             RoomId = 4
                         });
                 });
@@ -206,38 +201,50 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(6967),
+                            Birthdate = new DateTime(1987, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 778, DateTimeKind.Utc).AddTicks(7079),
+                            Email = "radekoncar@gmail.com",
                             FirstName = "Rade",
                             Gender = "M",
                             IsDeleted = false,
-                            LastName = "Končar"
+                            LastName = "Končar",
+                            PhoneNumber = "0917453456"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(7775),
+                            Birthdate = new DateTime(1982, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 782, DateTimeKind.Utc).AddTicks(9014),
+                            Email = "antemastelic@gmail.com",
                             FirstName = "Ante",
                             Gender = "M",
                             IsDeleted = false,
-                            LastName = "Mastelić"
+                            LastName = "Mastelić",
+                            PhoneNumber = "0924567484"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(7784),
+                            Birthdate = new DateTime(1991, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 782, DateTimeKind.Utc).AddTicks(9150),
+                            Email = "miadimsic@hotmail.com",
                             FirstName = "Mia",
                             Gender = "F",
                             IsDeleted = false,
-                            LastName = "Dimšić"
+                            LastName = "Dimšić",
+                            PhoneNumber = "0959375035"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(7784),
+                            Birthdate = new DateTime(1982, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 782, DateTimeKind.Utc).AddTicks(9166),
+                            Email = "hrvojehorvat@hotmail.com",
                             FirstName = "Hrvoje",
                             Gender = "M",
                             IsDeleted = false,
-                            LastName = "Horvat"
+                            LastName = "Horvat",
+                            PhoneNumber = "0983765905"
                         });
                 });
 
@@ -278,7 +285,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 1,
                             Address = "Ulica Izidora Kršnjavog 1",
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(7234),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 776, DateTimeKind.Utc).AddTicks(1792),
                             IsDeleted = false,
                             Name = "Westin",
                             PhoneNumber = "38514892000",
@@ -288,7 +295,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 2,
                             Address = "Miramarska Cesta 24",
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(8198),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 776, DateTimeKind.Utc).AddTicks(3703),
                             IsDeleted = false,
                             Name = "International",
                             PhoneNumber = "38516108800",
@@ -298,7 +305,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 3,
                             Address = "Trg Krešimira Ćosića 9",
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(8210),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 776, DateTimeKind.Utc).AddTicks(3729),
                             IsDeleted = false,
                             Name = "Esplanade",
                             PhoneNumber = "38514566600",
@@ -308,7 +315,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 4,
                             Address = "Trg Josipa Jurja Strossmayera 10",
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 459, DateTimeKind.Utc).AddTicks(8211),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 776, DateTimeKind.Utc).AddTicks(3730),
                             IsDeleted = false,
                             Name = "Palace",
                             PhoneNumber = "38514899600",
@@ -322,16 +329,21 @@ namespace BookingClone.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AgencyId");
+
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<int>("GuestId");
 
-                    b.Property<decimal>("Margin")
-                        .HasColumnType("decimal(4,2)");
+                    b.Property<bool>("IsDeleted");
 
                     b.Property<DateTime?>("UpdatedAt");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AgencyId");
+
+                    b.HasIndex("GuestId");
 
                     b.ToTable("Payments");
 
@@ -339,30 +351,34 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(9576),
-                            IsDeleted = false,
-                            Margin = 25.00m
+                            AgencyId = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 785, DateTimeKind.Utc).AddTicks(1876),
+                            GuestId = 1,
+                            IsDeleted = false
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(9905),
-                            IsDeleted = false,
-                            Margin = 40.00m
+                            AgencyId = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 785, DateTimeKind.Utc).AddTicks(3193),
+                            GuestId = 2,
+                            IsDeleted = false
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(9909),
-                            IsDeleted = false,
-                            Margin = 20.00m
+                            AgencyId = 3,
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 785, DateTimeKind.Utc).AddTicks(3218),
+                            GuestId = 3,
+                            IsDeleted = false
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 461, DateTimeKind.Utc).AddTicks(9910),
-                            IsDeleted = false,
-                            Margin = 35.00m
+                            AgencyId = 4,
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 785, DateTimeKind.Utc).AddTicks(3223),
+                            GuestId = 4,
+                            IsDeleted = false
                         });
                 });
 
@@ -380,7 +396,8 @@ namespace BookingClone.Migrations
 
                     b.Property<int>("NumberOfBeds");
 
-                    b.Property<decimal>("PricePerNight");
+                    b.Property<decimal>("PricePerNight")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("Size")
                         .HasColumnType("decimal(6,2)");
@@ -400,7 +417,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(2771),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 777, DateTimeKind.Utc).AddTicks(4419),
                             HotelId = 1,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -411,7 +428,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(4102),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 777, DateTimeKind.Utc).AddTicks(7156),
                             HotelId = 2,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -422,7 +439,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(4116),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 777, DateTimeKind.Utc).AddTicks(7190),
                             HotelId = 3,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -433,7 +450,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2019, 8, 10, 23, 14, 22, 460, DateTimeKind.Utc).AddTicks(4117),
+                            CreatedAt = new DateTime(2019, 8, 13, 17, 45, 38, 777, DateTimeKind.Utc).AddTicks(7192),
                             HotelId = 4,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -455,14 +472,26 @@ namespace BookingClone.Migrations
                         .HasForeignKey("GuestId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("BookingClone.Models.Payment", "Payment")
+                    b.HasOne("BookingClone.Models.Payment")
                         .WithMany("Bookings")
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("PaymentId");
 
                     b.HasOne("BookingClone.Models.Room", "Room")
                         .WithMany("Bookings")
                         .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("BookingClone.Models.Payment", b =>
+                {
+                    b.HasOne("BookingClone.Models.Agency", "Agency")
+                        .WithMany()
+                        .HasForeignKey("AgencyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BookingClone.Models.Guest", "Guest")
+                        .WithMany()
+                        .HasForeignKey("GuestId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
