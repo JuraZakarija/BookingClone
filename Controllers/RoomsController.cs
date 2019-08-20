@@ -22,10 +22,15 @@ namespace BookingClone.Controllers
 
         // GET: api/rooms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetRoomItems()
+        public async Task<ActionResult<IEnumerable<Room>>> GetRoomItems([FromQuery] int hotelId)
         {
-            var items = await _context.Rooms.ToListAsync();
-
+            List<Room> items;
+            if(hotelId > 0) {
+                items = await _context.Rooms.Where(r => r.HotelId == hotelId).ToListAsync();
+            } else {
+                items = await _context.Rooms.ToListAsync();
+            }
+            
             return Ok(items);
         }
 

@@ -229,6 +229,7 @@ namespace BookingClone.Extensions
                     Size = 34.42m, 
                     NumberOfBeds = 2, 
                     Type = "Double",
+                    RoomNumber = "101",
                     PricePerNight = 100.00m,
                 },
 
@@ -239,6 +240,7 @@ namespace BookingClone.Extensions
                     Size = 42.12m, 
                     NumberOfBeds = 2, 
                     Type = "Suite",
+                    RoomNumber = "202",
                     PricePerNight = 200.00m,
                 },
 
@@ -249,6 +251,7 @@ namespace BookingClone.Extensions
                     Size = 54.66m, 
                     NumberOfBeds = 4, 
                     Type = "Quad",
+                    RoomNumber = "301",
                     PricePerNight = 300.00m,
                 },
 
@@ -259,6 +262,95 @@ namespace BookingClone.Extensions
                     Size = 73.81m, 
                     NumberOfBeds = 4, 
                     Type = "Executive",
+                    RoomNumber = "202",
+                    PricePerNight = 400.00m,
+                },
+                
+                new Room()
+                {
+                    Id = 5, 
+                    HotelId = 1, 
+                    Size = 34.42m, 
+                    NumberOfBeds = 2, 
+                    Type = "Double",
+                    RoomNumber = "102",
+                    PricePerNight = 100.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 6, 
+                    HotelId = 2, 
+                    Size = 42.12m, 
+                    NumberOfBeds = 2, 
+                    Type = "Suite",
+                    RoomNumber = "204",
+                    PricePerNight = 200.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 7, 
+                    HotelId = 3, 
+                    Size = 54.66m, 
+                    NumberOfBeds = 4, 
+                    Type = "Quad",
+                    RoomNumber = "304",
+                    PricePerNight = 300.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 8, 
+                    HotelId = 4, 
+                    Size = 73.81m, 
+                    NumberOfBeds = 4, 
+                    Type = "Executive",
+                    RoomNumber = "206",
+                    PricePerNight = 400.00m,
+                },
+
+                new Room()
+                {
+                    Id = 9, 
+                    HotelId = 1, 
+                    Size = 34.42m, 
+                    NumberOfBeds = 2, 
+                    Type = "Double",
+                    RoomNumber = "103",
+                    PricePerNight = 100.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 10, 
+                    HotelId = 2, 
+                    Size = 42.12m, 
+                    NumberOfBeds = 2, 
+                    Type = "Suite",
+                    RoomNumber = "206",
+                    PricePerNight = 200.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 11, 
+                    HotelId = 3, 
+                    Size = 54.66m, 
+                    NumberOfBeds = 4, 
+                    Type = "Quad",
+                    RoomNumber = "305",
+                    PricePerNight = 300.00m,
+                },
+
+                new Room()
+                { 
+                    Id = 12, 
+                    HotelId = 4, 
+                    Size = 73.81m, 
+                    NumberOfBeds = 4, 
+                    Type = "Executive",
+                    RoomNumber = "208",
                     PricePerNight = 400.00m,
                 }
             );

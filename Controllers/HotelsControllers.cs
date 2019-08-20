@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookingClone.DB;
+using BookingClone.Dto;
 using BookingClone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,22 +25,39 @@ namespace BookingClone.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Hotel>>> GetHotelItems()
         {
-            var items = await _context.Hotels.ToListAsync();
+            var items = await _context.Hotels.AsQueryable().Select(h =>
+                new HotelDto {
+                Id = h.Id,
+                Name = h.Name,
+                Address = h.Address,
+                WebAddress = h.WebAddress,
+                PhoneNumber = h.PhoneNumber,
+                RoomCount = h.Rooms.Count
+            }
+        ).ToListAsync();
 
             return Ok(items);
         }
 
         // GET api/hotels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotel>> GetHotelItem(int id)
+        public async Task<ActionResult<HotelDto>> GetHotelItem(int id)
         {
-            var hotelItem = await _context.Hotels.FindAsync(id);
+            var h = await _context.Hotels.FindAsync(id);
 
-            if (hotelItem == null)
-            {
-                return NotFound();
-            }
-            return hotelItem;
+            if (h == null) { return NotFound(); }
+
+            var hotelDto = new HotelDto {
+
+                Id = h.Id,
+                Name = h.Name,
+                Address = h.Address,
+                WebAddress = h.WebAddress,
+                PhoneNumber = h.PhoneNumber,
+                
+            };
+
+            return hotelDto;
         }
 
         // POST api/hotels

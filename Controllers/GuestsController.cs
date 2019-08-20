@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookingClone.DB;
+using BookingClone.Dto;
 using BookingClone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,17 @@ namespace BookingClone.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Guest>>> GetGuestItems()
         {
-            var items = await _context.Guests.ToListAsync();
+            var items = await _context.Guests.AsQueryable().Select(g =>
+                new GuestDto {
+                    Id = g.Id,
+                    FullName = g.FirstName + " " + g.LastName,
+                    Email = g.Email,
+                    Birthdate = g.Birthdate.ToString(),
+                    BookingCount = g.Bookings.Count,
+                    Gender = g.Gender,
+                    PhoneNumber = g.PhoneNumber,
+                }
+            ).ToListAsync();
 
             return Ok(items);
         }
@@ -32,15 +43,24 @@ namespace BookingClone.Controllers
 
         // GET api/guests/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Guest>> GetGuestItem(int id)
+        public async Task<ActionResult<GuestDto>> GetGuestItem(int id)
         {
-            var guestItem = await _context.Guests.FindAsync(id);
+            var g = await _context.Guests.FindAsync(id);
 
-            if (guestItem == null)
-            {
-                return NotFound();
-            }
-            return guestItem;
+            if (g == null) { return NotFound(); }
+
+            var guestDto = new GuestDto {
+                
+                Birthdate = String.Format("{0:yyyy-MM-dd}", g.Birthdate),
+                Id = g.Id,
+                FirstName = g.FirstName,
+                LastName = g.LastName,
+                Email = g.Email,
+                Gender = g.Gender,
+                PhoneNumber = g.PhoneNumber,
+
+            };
+            return guestDto;
         }
 
         // POST api/guest

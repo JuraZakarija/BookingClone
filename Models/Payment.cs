@@ -28,8 +28,6 @@ namespace BookingClone.Models
         public decimal Price {
             get { return (room.PricePerNight * (booking.CheckOut - booking.CheckIn).Days) * (1 + agency.Commission/100); }
         }
-
-
         public ICollection<Booking> Bookings { get; set; }
     }
 }

@@ -19,50 +19,21 @@ namespace BookingClone.Controllers
         {
             _context = context;
         }
-            /* 
-            if (_context.Bookings.Count() < 2)
-            {
-                // Agencys constructor
-                _context.Agencies.Add(new Agency { Name = "Todoric" });
-                _context.Agencies.Add(new Agency { Name = "Deset" });
-                _context.SaveChanges();
-
-                // Hotels construktor
-                _context.Hotels.Add(new Hotel { Name = "Hotel Kašteli" });
-                _context.Hotels.Add(new Hotel { Name = "Esplanada" });
-                _context.SaveChanges();
-
-                // Payments constructor
-                _context.Payments.Add(new Payment { Price = 345.34m });
-                _context.Payments.Add(new Payment { Price = 23.54m });
-                _context.SaveChanges();
-
-                // Rooms constructor
-                _context.Rooms.Add(new Room { HotelId = 1, Size = 50, NumberOfBeds = 4, Type = "Apartman"});
-                _context.Rooms.Add(new Room { HotelId = 2, Size =40 , NumberOfBeds = 4, Type = "Apartman"});
-                _context.SaveChanges();
-
-                // Gusets constructor
-                _context.Guests.Add(new Guest { FirstName = "Rade", PaymentId = 1 });
-                _context.Guests.Add(new Guest { FirstName = "Izet", PaymentId = 2 });  
-                _context.SaveChanges();            
-                
-                // Bookings constructor
-                _context.Bookings.Add(new Booking { Price = 250.6m, AgencyId = 1, GuestId = 1, RoomId = 1, 
-                                                    HotelId = 1, PaymentId = 1 });
-                _context.Bookings.Add(new Booking { Price = 320.0m, AgencyId = 2, GuestId = 2, RoomId = 2, 
-                                                    HotelId = 2, PaymentId = 2 });
-                
-                _context.SaveChanges();
-                */
 
         // GET: api/bookings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Booking>>> GetBookingItems()
+        public async Task<ActionResult<IEnumerable<Booking>>> GetBookingItems(
+            [FromQuery] int? guestId
+        )
         {
-            var items = await _context.Bookings.ToListAsync();
 
-            return Ok(items);
+            var bookings = _context.Bookings.AsQueryable();
+
+            if(guestId != null) {
+                bookings = bookings.Where(b => b.GuestId == guestId);
+            }
+
+            return Ok(await bookings.ToListAsync());
         }
 
         // GET api/bookings/5

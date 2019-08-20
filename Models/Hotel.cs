@@ -21,5 +21,8 @@ namespace BookingClone.Models
         
         [Phone (ErrorMessage = "Nije dobar format telefonskog broja")]
         public string PhoneNumber { get; set; }
+
+        public ICollection<Room> Rooms { get; set; }
+
     }
 }
