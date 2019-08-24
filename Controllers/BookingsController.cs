@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookingClone.DB;
+using BookingClone.Dto;
 using BookingClone.Models;
+using BookingClone.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +15,17 @@ namespace BookingClone.Controllers
     [Route("api/bookings")]
     [ApiController]
     public class BookingsController : ControllerBase
-    {private readonly BookingCloneContext _context;
+    {
+        private readonly BookingCloneContext _context;
+        private readonly IBookingService BookingService;
 
-        public BookingsController(BookingCloneContext context)
+        public BookingsController(
+            BookingCloneContext context,
+            IBookingService bookingService
+        )
         {
             _context = context;
+            BookingService = bookingService;
         }
 
         // GET: api/bookings
@@ -47,6 +55,13 @@ namespace BookingClone.Controllers
                 return NotFound();
             }
             return bookingItem;
+        }
+
+        [HttpPost]
+        [Route("is_available")]
+        public bool CheckAvailability([FromBody] AvailabilityRequest request)
+        {
+            return this.BookingService.IsAvailable(request.CheckIn, request.CheckOut, request.RoomId);
         }
 
         // POST api/bookings
