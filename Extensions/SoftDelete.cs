@@ -9,7 +9,7 @@ namespace BookingClone.Extensions
         {
             SetupQueryFilter<Agency>(modelBuilder);
             SetupQueryFilter<Booking>(modelBuilder);
-            SetupQueryFilter<Guest>(modelBuilder);
+            // SetupQueryFilter<Guest>(modelBuilder);
             SetupQueryFilter<Hotel>(modelBuilder);
             SetupQueryFilter<Payment>(modelBuilder);
             SetupQueryFilter<Room>(modelBuilder);

@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookingClone.Models
 {
-    public class Guest : BaseModel
-    {         
+    public class AuthUser: IdentityUser<int>
+    {
         [Required (ErrorMessage = "Morate unijeti ime gosta")]
         [MaxLength(100, ErrorMessage = "Ime gosta mora biti kraća od 100 znakova")]
         public string FirstName { get; set; }
@@ -23,15 +23,6 @@ namespace BookingClone.Models
 
         [RegularExpression(@"M|F", ErrorMessage =  "Spol gosta se označava s jednim znakom: M ili F")]       
         public string Gender { get; set; }
-
-
-        [Phone (ErrorMessage = "Krivi format telefonskog broja")]// max length
-        public string PhoneNumber { get; set; }
-        
-
-        [EmailAddress (ErrorMessage = "Krivi format email adrese")]
-        public string Email { get; set; }
-
         public ICollection<Booking> Bookings { get; set; }
     }
 }

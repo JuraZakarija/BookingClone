@@ -1,6 +1,6 @@
 namespace BookingClone.Dto
 {
-    public class GuestDto : BaseDto
+    public class UserDto : BaseDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -13,6 +13,8 @@ namespace BookingClone.Dto
         public string PhoneNumber { get; set; }
         
         public string Email { get; set; }
+
+        public string Password { get; set; }
 
         public int BookingCount { get; set; } = 0;
     }

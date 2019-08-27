@@ -2,11 +2,13 @@ using System;
 using System.Linq;
 using BookingClone.Extensions;
 using BookingClone.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingClone.DB
 {
-    public class BookingCloneContext : DbContext
+    public class BookingCloneContext : IdentityDbContext<AuthUser, IdentityRole<int>, int>
     {
         public BookingCloneContext(DbContextOptions<BookingCloneContext> options)
             : base(options)
@@ -14,10 +16,10 @@ namespace BookingClone.DB
 
         public DbSet<Agency> Agencies { get; set; }
         public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Guest> Guests { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public new DbSet<AuthUser> Users { get; set; }
 
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,7 +36,7 @@ namespace BookingClone.DB
                 .HasIndex(u => u.Name)
                 .IsUnique();
 
-            modelBuilder.Entity<Guest>()
+            modelBuilder.Entity<AuthUser>()
                 .HasIndex(u => u.LastName);
 
             modelBuilder.Entity<Hotel>()
@@ -44,6 +46,7 @@ namespace BookingClone.DB
             //modelBuilder.SoftDeleteSetup();
 
             modelBuilder.Seed();
+            base.OnModelCreating(modelBuilder);
         }
 
         private void OnBeforeSaving()

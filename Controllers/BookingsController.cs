@@ -31,14 +31,14 @@ namespace BookingClone.Controllers
         // GET: api/bookings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookingItems(
-            [FromQuery] int? guestId
+            [FromQuery] int? userId
         )
         {
 
             var bookings = _context.Bookings.AsQueryable();
 
-            if(guestId != null) {
-                bookings = bookings.Where(b => b.GuestId == guestId);
+            if(userId != null) {
+                bookings = bookings.Where(b => b.UserId == userId);
             }
 
             return Ok(await bookings.ToListAsync());

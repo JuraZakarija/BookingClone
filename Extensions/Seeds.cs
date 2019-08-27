@@ -1,5 +1,6 @@
 using System;
 using BookingClone.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -13,7 +14,7 @@ namespace BookingClone.Extensions
             Agencies(modelBuilder);
             Hotels(modelBuilder);
             Rooms(modelBuilder);
-            Guests(modelBuilder);
+            AuthUsers(modelBuilder);
             Bookings(modelBuilder);
             Payments(modelBuilder);
         }
@@ -59,7 +60,7 @@ namespace BookingClone.Extensions
                     Id = 1, 
                     AgencyId = 1,
                     RoomId = 1, 
-                    GuestId = 1, 
+                    UserId = 1, 
                     CheckIn = DateTime.Parse("2019-01-01"), 
                     CheckOut = DateTime.Parse("2019-01-08")
                 },
@@ -69,7 +70,7 @@ namespace BookingClone.Extensions
                     Id = 2, 
                     AgencyId = 2,
                     RoomId = 2, 
-                    GuestId = 2, 
+                    UserId = 2, 
                     CheckIn = DateTime.Parse("2019-02-01"), 
                     CheckOut = DateTime.Parse("2019-02-08")
                 },
@@ -79,7 +80,7 @@ namespace BookingClone.Extensions
                     Id = 3, 
                     AgencyId = 3, 
                     RoomId = 3, 
-                    GuestId = 3, 
+                    UserId = 3, 
                     CheckIn = DateTime.Parse("2019-03-01"), 
                     CheckOut = DateTime.Parse("2019-03-08")
                 },
@@ -89,17 +90,17 @@ namespace BookingClone.Extensions
                     Id = 4, 
                     AgencyId = 4,
                     RoomId = 4, 
-                    GuestId = 4,
+                    UserId = 4,
                     CheckIn = DateTime.Parse("2019-04-01"), 
                     CheckOut = DateTime.Parse("2019-04-08")
                 }
             );
         }
 
-        public static void Guests(ModelBuilder modelBuilder)
+        public static void AuthUsers(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Guest>().HasData(
-                new Guest()
+            modelBuilder.Entity<AuthUser>().HasData(
+                new AuthUser()
                 { 
                     Id = 1, 
                     FirstName = "Rade", 
@@ -110,7 +111,7 @@ namespace BookingClone.Extensions
                     Email = "radekoncar@gmail.com",
                 },
                 
-                new Guest()
+                new AuthUser()
                 { 
                     Id = 2, 
                     FirstName = "Ante", 
@@ -121,7 +122,7 @@ namespace BookingClone.Extensions
                     Email = "antemastelic@gmail.com",
                 },
 
-                new Guest()
+                new AuthUser()
                 { 
                     Id = 3, 
                     FirstName = "Mia", 
@@ -132,7 +133,7 @@ namespace BookingClone.Extensions
                     Email = "miadimsic@hotmail.com",
                 },
 
-                new Guest()
+                new AuthUser()
                 { 
                     Id = 4, 
                     FirstName = "Hrvoje", 
@@ -193,28 +194,28 @@ namespace BookingClone.Extensions
                 {
                     Id = 1,
                     AgencyId = 1,
-                    GuestId = 1 
+                    UserId = 1 
                 },
 
                 new Payment()
                 {
                     Id = 2,
                     AgencyId = 2,
-                    GuestId = 2 
+                    UserId = 2 
                 },
 
                 new Payment()
                 {
                     Id = 3,
                     AgencyId = 3,
-                    GuestId = 3
+                    UserId = 3
                 },
 
                 new Payment()
                 {
                     Id = 4,
                     AgencyId = 4,
-                    GuestId = 4 
+                    UserId = 4 
                 } 
             );
         }

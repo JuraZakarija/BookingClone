@@ -16,9 +16,9 @@ namespace BookingClone.Models
         [JsonIgnore]
         public Agency Agency { get; set; }
 
-        public int GuestId { get; set; }
+        public int UserId { get; set; }
         [JsonIgnore]
-        public Guest Guest { get; set;}
+        public AuthUser User { get; set;}
 
 
 
