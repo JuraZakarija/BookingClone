@@ -66,16 +66,40 @@ namespace BookingClone.Controllers
 
         // POST api/bookings
         [HttpPost]
-        public async Task<ActionResult<Booking>> PostBookingItem(Booking item)
+        public async Task<ActionResult<Booking>> PostBookingItem([FromBody] BookingPostRequest request)
         {
-            if(item.CheckIn > item.CheckOut)
+            if(request.CheckIn > request.CheckOut)
             {
                 return BadRequest("Datum prijave ne može biti veći od dana odjave");
             }
-            _context.Bookings.Add(item);
+
+            var booking = new Booking {
+                CheckIn = request.CheckIn,
+                CheckOut = request.CheckOut,
+                UserId = request.UserId,
+                RoomId = request.RoomId,
+                AgencyId = request.AgencyId
+            };
+
+            _context.Bookings.Add(booking);
+            // _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetBookingItem), new { id = item.Id }, item);
+            booking = await _context
+                .Bookings
+                .Include(b => b.Room)
+                .Include(b => b.Agency)
+                .FirstAsync(b => b.Id == booking.Id);
+            
+            var payment = new Payment {
+                AgencyId = booking.AgencyId,
+                UserId = booking.UserId,
+                Price = booking.Room.PricePerNight * (booking.CheckOut - booking.CheckIn).Days * (1 + booking.Agency.Commission/100)
+            };
+
+            _context.Payments.Add(payment);
+            await _context.SaveChangesAsync();
+            return Ok(booking);
         }
 
         // PUT api/bookings/5

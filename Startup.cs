@@ -31,6 +31,7 @@ namespace BookingClone
             services.AddScoped<IAuthService, AuthService>();
             
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IBookingService, BookingService>();
             
             services.AddDbContext<BookingCloneContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

@@ -23,6 +23,8 @@ namespace BookingClone.Models
 
         [RegularExpression(@"M|F", ErrorMessage =  "Spol gosta se označava s jednim znakom: M ili F")]       
         public string Gender { get; set; }
+
+        public string Role = "User";
         public ICollection<Booking> Bookings { get; set; }
     }
 }

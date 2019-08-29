@@ -35,7 +35,7 @@ namespace BookingClone.Controllers
                     BookingCount = g.Bookings.Count,
                     Gender = g.Gender,
                     PhoneNumber = g.PhoneNumber,
-                    Password = g.PasswordHash,
+                    
                 }
             ).ToListAsync();
 
@@ -61,48 +61,48 @@ namespace BookingClone.Controllers
                 Email = g.Email,
                 Gender = g.Gender,
                 PhoneNumber = g.PhoneNumber,
-                Password = g.PasswordHash,
-
+                Password = g.PasswordHash
             };
             return userDto;
         }
 
-        // // POST api/guest
-        // [HttpPost]
-        // public async Task<ActionResult<Guest>> PostGuestItem(Guest item)
-        // {
-        //     _context.Guests.Add(item);
-        //     await _context.SaveChangesAsync();
+        // POST api/guest
+        [HttpPost]
+        public async Task<ActionResult<AuthUser>> PostGuestItem(AuthUser item)
+        {
+            _context.Users.Add(item);
+            await _context.SaveChangesAsync();
 
-        //     return CreatedAtAction(nameof(GetGuestItem), new { id = item.Id }, item);
-        // }
+            return CreatedAtAction(nameof(GetGuestItem), new { id = item.Id }, item);
+        }
 
-        // // PUT api/guests/5
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> PutGuestItem(int id, [FromBody] Guest item)
-        // {
-        //     item.Id = id;
+        // PUT api/guests/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutGuestItem(int id, [FromBody] AuthUser item)
+        {
+            item.Id = id;
 
-        //     _context.Entry(item).State = EntityState.Modified;
-        //     await _context.SaveChangesAsync();
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-        //     return NoContent();
-        // }
+            return NoContent();
+        }
 
-        // // DELETE api/guests/5
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> DeleteGuestItem(int id)
-        // {
-        //     var guestItem = await _context.Guests.FindAsync(id);
+        // DELETE api/guests/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGuestItem(int id)
+        {
+            var guestItem = await _context.Users.FindAsync(id);
 
-        //     if (guestItem == null)
-        //     {
-        //         return NotFound();
-        //     }
+            if (guestItem == null)
+            {
+                return NotFound();
+            }
 
-        //     _context.Guests.Remove(guestItem);
-        //     await _context.SaveChangesAsync();
+            _context.Remove(guestItem);
+            await _context.SaveChangesAsync();
 
-        //     return NoContent();
+            return NoContent();
         }
     }
+}

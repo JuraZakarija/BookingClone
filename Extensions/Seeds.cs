@@ -99,6 +99,7 @@ namespace BookingClone.Extensions
 
         public static void AuthUsers(ModelBuilder modelBuilder)
         {
+            var hasher = new PasswordHasher<AuthUser>();
             modelBuilder.Entity<AuthUser>().HasData(
                 new AuthUser()
                 { 
@@ -109,6 +110,7 @@ namespace BookingClone.Extensions
                     Gender = "M",
                     PhoneNumber = "0917453456",
                     Email = "radekoncar@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "1A1errrr")
                 },
                 
                 new AuthUser()
@@ -130,7 +132,7 @@ namespace BookingClone.Extensions
                     Birthdate = DateTime.Parse("1991-02-11"),                      
                     Gender = "F",
                     PhoneNumber = "0959375035",
-                    Email = "miadimsic@hotmail.com",
+                    Email = "miadimsic@hotmail.com"
                 },
 
                 new AuthUser()
@@ -271,7 +273,7 @@ namespace BookingClone.Extensions
                 {
                     Id = 5, 
                     HotelId = 1, 
-                    Size = 34.42m, 
+                    Size = 33.77m, 
                     NumberOfBeds = 2, 
                     Type = "Double",
                     RoomNumber = "102",
@@ -282,7 +284,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 6, 
                     HotelId = 2, 
-                    Size = 42.12m, 
+                    Size = 36.46m, 
                     NumberOfBeds = 2, 
                     Type = "Suite",
                     RoomNumber = "204",
@@ -293,7 +295,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 7, 
                     HotelId = 3, 
-                    Size = 54.66m, 
+                    Size = 65.45m, 
                     NumberOfBeds = 4, 
                     Type = "Quad",
                     RoomNumber = "304",
@@ -304,7 +306,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 8, 
                     HotelId = 4, 
-                    Size = 73.81m, 
+                    Size = 75.64m, 
                     NumberOfBeds = 4, 
                     Type = "Executive",
                     RoomNumber = "206",
@@ -315,7 +317,7 @@ namespace BookingClone.Extensions
                 {
                     Id = 9, 
                     HotelId = 1, 
-                    Size = 34.42m, 
+                    Size = 43.46m, 
                     NumberOfBeds = 2, 
                     Type = "Double",
                     RoomNumber = "103",
@@ -326,7 +328,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 10, 
                     HotelId = 2, 
-                    Size = 42.12m, 
+                    Size = 34.64m, 
                     NumberOfBeds = 2, 
                     Type = "Suite",
                     RoomNumber = "206",
@@ -337,7 +339,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 11, 
                     HotelId = 3, 
-                    Size = 54.66m, 
+                    Size = 53.66m, 
                     NumberOfBeds = 4, 
                     Type = "Quad",
                     RoomNumber = "305",
@@ -348,7 +350,7 @@ namespace BookingClone.Extensions
                 { 
                     Id = 12, 
                     HotelId = 4, 
-                    Size = 73.81m, 
+                    Size = 79.45m, 
                     NumberOfBeds = 4, 
                     Type = "Executive",
                     RoomNumber = "208",

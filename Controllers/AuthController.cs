@@ -54,8 +54,11 @@ namespace BookingClone.Controllers
         {
             var user = new AuthUser
             {
-                UserName = model.Email, 
-                Email = model.Email
+                Email = model.Email,
+                PasswordHash = model.Password,
+                UserName = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName
             };
             var result = await _userManager.CreateAsync(user, model.Password);
 
