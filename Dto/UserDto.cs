@@ -18,6 +18,8 @@ namespace BookingClone.Dto
 
         public string Password { get; set; }
 
+        public string Role { get; set; } = "User";
+
         public int BookingCount { get; set; } = 0;
     }
 }

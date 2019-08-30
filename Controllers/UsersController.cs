@@ -35,6 +35,7 @@ namespace BookingClone.Controllers
                     BookingCount = g.Bookings.Count,
                     Gender = g.Gender,
                     PhoneNumber = g.PhoneNumber,
+                    Role = g.Role
                     
                 }
             ).ToListAsync();
@@ -61,7 +62,9 @@ namespace BookingClone.Controllers
                 Email = g.Email,
                 Gender = g.Gender,
                 PhoneNumber = g.PhoneNumber,
-                Password = g.PasswordHash
+                Password = g.PasswordHash,
+                Role = g.Role
+                    
             };
             return userDto;
         }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookingClone.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,7 +63,8 @@ namespace BookingClone.Migrations
                     FirstName = table.Column<string>(maxLength: 100, nullable: false),
                     LastName = table.Column<string>(maxLength: 100, nullable: false),
                     Birthdate = table.Column<DateTime>(nullable: true),
-                    Gender = table.Column<string>(nullable: true)
+                    Gender = table.Column<string>(nullable: true),
+                    Role = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -302,21 +303,21 @@ namespace BookingClone.Migrations
                 columns: new[] { "Id", "Commission", "CreatedAt", "IsDeleted", "Name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, 15.00m, new DateTime(2019, 8, 28, 9, 24, 11, 538, DateTimeKind.Utc).AddTicks(9748), false, "Todoric", null },
-                    { 2, 20.00m, new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(594), false, "Airbnb", null },
-                    { 3, 23.00m, new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(603), false, "Booking", null },
-                    { 4, 17.50m, new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(604), false, "Trivago", null }
+                    { 1, 15.00m, new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(1518), false, "Todoric", null },
+                    { 2, 20.00m, new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2305), false, "Airbnb", null },
+                    { 3, 23.00m, new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2314), false, "Booking", null },
+                    { 4, 17.50m, new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2315), false, "Trivago", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Birthdate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "Birthdate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Role", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 0, new DateTime(1987, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ff369b55-53e4-409f-80a8-9bc3253c2133", "radekoncar@gmail.com", false, "Rade", "M", "Končar", false, null, null, null, "AQAAAAEAACcQAAAAEKpWL+mTkRIKPkqPjoHlMayEDAhsILHpdb45yUXnTeCUMcx2Evzj6si4FmKAGJtk/g==", "0917453456", false, null, false, null },
-                    { 2, 0, new DateTime(1982, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "f4c93c7c-7b10-4aff-99b5-b332cade23ba", "antemastelic@gmail.com", false, "Ante", "M", "Mastelić", false, null, null, null, null, "0924567484", false, null, false, null },
-                    { 3, 0, new DateTime(1991, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "3a28d468-52bd-4609-a8db-24229c3b2f08", "miadimsic@hotmail.com", false, "Mia", "F", "Dimšić", false, null, null, null, null, "0959375035", false, null, false, null },
-                    { 4, 0, new DateTime(1982, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "486bf39a-4fb0-4038-9b0d-2692910ed85e", "hrvojehorvat@hotmail.com", false, "Hrvoje", "M", "Horvat", false, null, null, null, null, "0983765905", false, null, false, null }
+                    { 1, 0, new DateTime(1987, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "340cd3ee-acbc-4b82-9e70-c81a07861b9e", "radekoncar@gmail.com", false, "Rade", "M", "Končar", false, null, null, null, "AQAAAAEAACcQAAAAEN7ACg3or+JbStDAVRKmy8r7D0yu19jt5KnvuIxSt64kEbm6I3G6tOWsl435DxY+nA==", "0917453456", false, "User", null, false, null },
+                    { 2, 0, new DateTime(1982, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "4401930c-48fd-4b5a-9e80-c9042f4959a8", "antemastelic@gmail.com", false, "Ante", "M", "Mastelić", false, null, null, null, null, "0924567484", false, "User", null, false, null },
+                    { 3, 0, new DateTime(1991, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "1a85f5c7-9b43-4368-b167-f1e0d6ba2173", "miadimsic@hotmail.com", false, "Mia", "F", "Dimšić", false, null, null, null, null, "0959375035", false, "User", null, false, null },
+                    { 4, 0, new DateTime(1982, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "1c22660c-c800-406f-ab2b-1c3c3802d9ef", "hrvojehorvat@hotmail.com", false, "Hrvoje", "M", "Horvat", false, null, null, null, null, "0983765905", false, "User", null, false, null }
                 });
 
             migrationBuilder.InsertData(
@@ -324,10 +325,10 @@ namespace BookingClone.Migrations
                 columns: new[] { "Id", "Address", "CreatedAt", "IsDeleted", "Name", "PhoneNumber", "UpdatedAt", "WebAddress" },
                 values: new object[,]
                 {
-                    { 1, "Ulica Izidora Kršnjavog 1", new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(6790), false, "Westin", "38514892000", null, "www.westinzagreb.com" },
-                    { 2, "Miramarska Cesta 24", new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8815), false, "International", "38516108800", null, "www.hotel-international.hr" },
-                    { 3, "Trg Krešimira Ćosića 9", new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8843), false, "Esplanade", "38514566600", null, "www.esplanade.hr" },
-                    { 4, "Trg Josipa Jurja Strossmayera 10", new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8844), false, "Palace", "38514899600", null, "www.palace.hr" }
+                    { 1, "Ulica Izidora Kršnjavog 1", new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(6486), false, "Westin", "38514892000", null, "www.westinzagreb.com" },
+                    { 2, "Miramarska Cesta 24", new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8141), false, "International", "38516108800", null, "www.hotel-international.hr" },
+                    { 3, "Trg Krešimira Ćosića 9", new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8160), false, "Esplanade", "38514566600", null, "www.esplanade.hr" },
+                    { 4, "Trg Josipa Jurja Strossmayera 10", new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8162), false, "Palace", "38514899600", null, "www.palace.hr" }
                 });
 
             migrationBuilder.InsertData(
@@ -335,10 +336,10 @@ namespace BookingClone.Migrations
                 columns: new[] { "Id", "AgencyId", "CreatedAt", "IsDeleted", "Price", "UpdatedAt", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(2761), false, 0m, null, 1 },
-                    { 2, 2, new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3866), false, 0m, null, 2 },
-                    { 3, 3, new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3876), false, 0m, null, 3 },
-                    { 4, 4, new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3877), false, 0m, null, 4 }
+                    { 1, 1, new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(189), false, 0m, null, 1 },
+                    { 2, 2, new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(787), false, 0m, null, 2 },
+                    { 3, 3, new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(793), false, 0m, null, 3 },
+                    { 4, 4, new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(794), false, 0m, null, 4 }
                 });
 
             migrationBuilder.InsertData(
@@ -346,18 +347,18 @@ namespace BookingClone.Migrations
                 columns: new[] { "Id", "CreatedAt", "HotelId", "IsDeleted", "NumberOfBeds", "PricePerNight", "RoomNumber", "Size", "Type", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2019, 8, 28, 9, 24, 11, 541, DateTimeKind.Utc).AddTicks(9977), 1, false, 2, 100.00m, "101", 34.42m, "Double", null },
-                    { 5, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1652), 1, false, 2, 100.00m, "102", 33.77m, "Double", null },
-                    { 9, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1656), 1, false, 2, 100.00m, "103", 43.46m, "Double", null },
-                    { 2, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1630), 2, false, 2, 200.00m, "202", 42.12m, "Suite", null },
-                    { 6, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1653), 2, false, 2, 200.00m, "204", 36.46m, "Suite", null },
-                    { 10, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1657), 2, false, 2, 200.00m, "206", 34.64m, "Suite", null },
-                    { 3, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1649), 3, false, 4, 300.00m, "301", 54.66m, "Quad", null },
-                    { 7, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1654), 3, false, 4, 300.00m, "304", 65.45m, "Quad", null },
-                    { 11, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1704), 3, false, 4, 300.00m, "305", 53.66m, "Quad", null },
-                    { 4, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1651), 4, false, 4, 400.00m, "202", 73.81m, "Executive", null },
-                    { 8, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1655), 4, false, 4, 400.00m, "206", 75.64m, "Executive", null },
-                    { 12, new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1705), 4, false, 4, 400.00m, "208", 79.45m, "Executive", null }
+                    { 1, new DateTime(2019, 8, 29, 10, 26, 27, 828, DateTimeKind.Utc).AddTicks(9430), 1, false, 2, 100.00m, "101", 34.42m, "Double", null },
+                    { 5, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1035), 1, false, 2, 100.00m, "102", 33.77m, "Double", null },
+                    { 9, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1038), 1, false, 2, 100.00m, "103", 43.46m, "Double", null },
+                    { 2, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1016), 2, false, 2, 200.00m, "202", 42.12m, "Suite", null },
+                    { 6, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1036), 2, false, 2, 200.00m, "204", 36.46m, "Suite", null },
+                    { 10, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1039), 2, false, 2, 200.00m, "206", 34.64m, "Suite", null },
+                    { 3, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1033), 3, false, 4, 300.00m, "301", 54.66m, "Quad", null },
+                    { 7, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1036), 3, false, 4, 300.00m, "304", 65.45m, "Quad", null },
+                    { 11, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1039), 3, false, 4, 300.00m, "305", 53.66m, "Quad", null },
+                    { 4, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1034), 4, false, 4, 400.00m, "202", 73.81m, "Executive", null },
+                    { 8, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1037), 4, false, 4, 400.00m, "206", 75.64m, "Executive", null },
+                    { 12, new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1040), 4, false, 4, 400.00m, "208", 79.45m, "Executive", null }
                 });
 
             migrationBuilder.InsertData(
@@ -365,10 +366,10 @@ namespace BookingClone.Migrations
                 columns: new[] { "Id", "AgencyId", "CheckIn", "CheckOut", "CreatedAt", "IsDeleted", "PaymentId", "RoomId", "UpdatedAt", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(4166), false, null, 1, null, 1 },
-                    { 2, 2, new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6592), false, null, 2, null, 2 },
-                    { 3, 3, new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6638), false, null, 3, null, 3 },
-                    { 4, 4, new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6648), false, null, 4, null, 4 }
+                    { 1, 1, new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(6233), false, null, 1, null, 1 },
+                    { 2, 2, new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7345), false, null, 2, null, 2 },
+                    { 3, 3, new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7373), false, null, 3, null, 3 },
+                    { 4, 4, new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7379), false, null, 4, null, 4 }
                 });
 
             migrationBuilder.CreateIndex(

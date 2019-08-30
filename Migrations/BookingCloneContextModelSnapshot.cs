@@ -50,7 +50,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 1,
                             Commission = 15.00m,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 538, DateTimeKind.Utc).AddTicks(9748),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(1518),
                             IsDeleted = false,
                             Name = "Todoric"
                         },
@@ -58,7 +58,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 2,
                             Commission = 20.00m,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(594),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2305),
                             IsDeleted = false,
                             Name = "Airbnb"
                         },
@@ -66,7 +66,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 3,
                             Commission = 23.00m,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(603),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2314),
                             IsDeleted = false,
                             Name = "Booking"
                         },
@@ -74,7 +74,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 4,
                             Commission = 17.50m,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(604),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(2315),
                             IsDeleted = false,
                             Name = "Trivago"
                         });
@@ -124,6 +124,8 @@ namespace BookingClone.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<string>("Role");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -151,16 +153,17 @@ namespace BookingClone.Migrations
                             Id = 1,
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1987, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "ff369b55-53e4-409f-80a8-9bc3253c2133",
+                            ConcurrencyStamp = "340cd3ee-acbc-4b82-9e70-c81a07861b9e",
                             Email = "radekoncar@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Rade",
                             Gender = "M",
                             LastName = "Končar",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEKpWL+mTkRIKPkqPjoHlMayEDAhsILHpdb45yUXnTeCUMcx2Evzj6si4FmKAGJtk/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN7ACg3or+JbStDAVRKmy8r7D0yu19jt5KnvuIxSt64kEbm6I3G6tOWsl435DxY+nA==",
                             PhoneNumber = "0917453456",
                             PhoneNumberConfirmed = false,
+                            Role = "User",
                             TwoFactorEnabled = false
                         },
                         new
@@ -168,7 +171,7 @@ namespace BookingClone.Migrations
                             Id = 2,
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1982, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "f4c93c7c-7b10-4aff-99b5-b332cade23ba",
+                            ConcurrencyStamp = "4401930c-48fd-4b5a-9e80-c9042f4959a8",
                             Email = "antemastelic@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ante",
@@ -177,6 +180,7 @@ namespace BookingClone.Migrations
                             LockoutEnabled = false,
                             PhoneNumber = "0924567484",
                             PhoneNumberConfirmed = false,
+                            Role = "User",
                             TwoFactorEnabled = false
                         },
                         new
@@ -184,7 +188,7 @@ namespace BookingClone.Migrations
                             Id = 3,
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1991, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "3a28d468-52bd-4609-a8db-24229c3b2f08",
+                            ConcurrencyStamp = "1a85f5c7-9b43-4368-b167-f1e0d6ba2173",
                             Email = "miadimsic@hotmail.com",
                             EmailConfirmed = false,
                             FirstName = "Mia",
@@ -193,6 +197,7 @@ namespace BookingClone.Migrations
                             LockoutEnabled = false,
                             PhoneNumber = "0959375035",
                             PhoneNumberConfirmed = false,
+                            Role = "User",
                             TwoFactorEnabled = false
                         },
                         new
@@ -200,7 +205,7 @@ namespace BookingClone.Migrations
                             Id = 4,
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1982, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "486bf39a-4fb0-4038-9b0d-2692910ed85e",
+                            ConcurrencyStamp = "1c22660c-c800-406f-ab2b-1c3c3802d9ef",
                             Email = "hrvojehorvat@hotmail.com",
                             EmailConfirmed = false,
                             FirstName = "Hrvoje",
@@ -209,6 +214,7 @@ namespace BookingClone.Migrations
                             LockoutEnabled = false,
                             PhoneNumber = "0983765905",
                             PhoneNumberConfirmed = false,
+                            Role = "User",
                             TwoFactorEnabled = false
                         });
                 });
@@ -256,7 +262,7 @@ namespace BookingClone.Migrations
                             AgencyId = 1,
                             CheckIn = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(4166),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(6233),
                             IsDeleted = false,
                             RoomId = 1,
                             UserId = 1
@@ -267,7 +273,7 @@ namespace BookingClone.Migrations
                             AgencyId = 2,
                             CheckIn = new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6592),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7345),
                             IsDeleted = false,
                             RoomId = 2,
                             UserId = 2
@@ -278,7 +284,7 @@ namespace BookingClone.Migrations
                             AgencyId = 3,
                             CheckIn = new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6638),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7373),
                             IsDeleted = false,
                             RoomId = 3,
                             UserId = 3
@@ -289,7 +295,7 @@ namespace BookingClone.Migrations
                             AgencyId = 4,
                             CheckIn = new DateTime(2019, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CheckOut = new DateTime(2019, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 560, DateTimeKind.Utc).AddTicks(6648),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 840, DateTimeKind.Utc).AddTicks(7379),
                             IsDeleted = false,
                             RoomId = 4,
                             UserId = 4
@@ -333,7 +339,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 1,
                             Address = "Ulica Izidora Kršnjavog 1",
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(6790),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(6486),
                             IsDeleted = false,
                             Name = "Westin",
                             PhoneNumber = "38514892000",
@@ -343,7 +349,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 2,
                             Address = "Miramarska Cesta 24",
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8815),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8141),
                             IsDeleted = false,
                             Name = "International",
                             PhoneNumber = "38516108800",
@@ -353,7 +359,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 3,
                             Address = "Trg Krešimira Ćosića 9",
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8843),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8160),
                             IsDeleted = false,
                             Name = "Esplanade",
                             PhoneNumber = "38514566600",
@@ -363,7 +369,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 4,
                             Address = "Trg Josipa Jurja Strossmayera 10",
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 539, DateTimeKind.Utc).AddTicks(8844),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 827, DateTimeKind.Utc).AddTicks(8162),
                             IsDeleted = false,
                             Name = "Palace",
                             PhoneNumber = "38514899600",
@@ -402,7 +408,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 1,
                             AgencyId = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(2761),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(189),
                             IsDeleted = false,
                             Price = 0m,
                             UserId = 1
@@ -411,7 +417,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 2,
                             AgencyId = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3866),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(787),
                             IsDeleted = false,
                             Price = 0m,
                             UserId = 2
@@ -420,7 +426,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 3,
                             AgencyId = 3,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3876),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(793),
                             IsDeleted = false,
                             Price = 0m,
                             UserId = 3
@@ -429,7 +435,7 @@ namespace BookingClone.Migrations
                         {
                             Id = 4,
                             AgencyId = 4,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 561, DateTimeKind.Utc).AddTicks(3877),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 841, DateTimeKind.Utc).AddTicks(794),
                             IsDeleted = false,
                             Price = 0m,
                             UserId = 4
@@ -475,7 +481,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 541, DateTimeKind.Utc).AddTicks(9977),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 828, DateTimeKind.Utc).AddTicks(9430),
                             HotelId = 1,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -487,7 +493,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1630),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1016),
                             HotelId = 2,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -499,7 +505,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1649),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1033),
                             HotelId = 3,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -511,7 +517,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1651),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1034),
                             HotelId = 4,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -523,7 +529,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1652),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1035),
                             HotelId = 1,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -535,7 +541,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1653),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1036),
                             HotelId = 2,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -547,7 +553,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1654),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1036),
                             HotelId = 3,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -559,7 +565,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1655),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1037),
                             HotelId = 4,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -571,7 +577,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1656),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1038),
                             HotelId = 1,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -583,7 +589,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1657),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1039),
                             HotelId = 2,
                             IsDeleted = false,
                             NumberOfBeds = 2,
@@ -595,7 +601,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1704),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1039),
                             HotelId = 3,
                             IsDeleted = false,
                             NumberOfBeds = 4,
@@ -607,7 +613,7 @@ namespace BookingClone.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2019, 8, 28, 9, 24, 11, 542, DateTimeKind.Utc).AddTicks(1705),
+                            CreatedAt = new DateTime(2019, 8, 29, 10, 26, 27, 829, DateTimeKind.Utc).AddTicks(1040),
                             HotelId = 4,
                             IsDeleted = false,
                             NumberOfBeds = 4,

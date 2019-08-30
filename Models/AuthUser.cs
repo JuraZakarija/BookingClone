@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
@@ -24,7 +25,7 @@ namespace BookingClone.Models
         [RegularExpression(@"M|F", ErrorMessage =  "Spol gosta se označava s jednim znakom: M ili F")]       
         public string Gender { get; set; }
 
-        public string Role = "User";
+        public string Role { get; set; } = "User";
         public ICollection<Booking> Bookings { get; set; }
     }
 }

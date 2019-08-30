@@ -100,6 +100,7 @@ namespace BookingClone.Extensions
         public static void AuthUsers(ModelBuilder modelBuilder)
         {
             var hasher = new PasswordHasher<AuthUser>();
+            var password = hasher.HashPassword(null, "1A1errrr");
             modelBuilder.Entity<AuthUser>().HasData(
                 new AuthUser()
                 { 
@@ -110,7 +111,7 @@ namespace BookingClone.Extensions
                     Gender = "M",
                     PhoneNumber = "0917453456",
                     Email = "radekoncar@gmail.com",
-                    PasswordHash = hasher.HashPassword(null, "1A1errrr")
+                    PasswordHash = password
                 },
                 
                 new AuthUser()
@@ -122,6 +123,7 @@ namespace BookingClone.Extensions
                     Gender = "M",
                     PhoneNumber = "0924567484",
                     Email = "antemastelic@gmail.com",
+                    PasswordHash = password
                 },
 
                 new AuthUser()
@@ -132,7 +134,8 @@ namespace BookingClone.Extensions
                     Birthdate = DateTime.Parse("1991-02-11"),                      
                     Gender = "F",
                     PhoneNumber = "0959375035",
-                    Email = "miadimsic@hotmail.com"
+                    Email = "miadimsic@hotmail.com",
+                    PasswordHash = password
                 },
 
                 new AuthUser()
@@ -144,6 +147,7 @@ namespace BookingClone.Extensions
                     Gender = "M",
                     PhoneNumber = "0983765905",
                     Email = "hrvojehorvat@hotmail.com",
+                    PasswordHash = password
                 }
             );
         }

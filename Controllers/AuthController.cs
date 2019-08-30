@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BookingClone.Models;
 using BookingClone.Requests.Auth;
+using BookingClone.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -43,10 +44,18 @@ namespace BookingClone.Controllers
             if (result.Succeeded)
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return GenerateJwtToken(model.Email, appUser);
-            }
-
-            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+                return new RegisterResponse
+               {
+                   User = new AuthUserResponse
+                   {
+                       Id = appUser.Id,
+                       Email = appUser.Email,
+                       Role = appUser.Role
+                   },
+                   Token = GenerateJwtToken(appUser.Email, appUser).ToString()
+               };
+           }
+           throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
 
         [HttpPost("register")]
@@ -58,7 +67,8 @@ namespace BookingClone.Controllers
                 PasswordHash = model.Password,
                 UserName = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                Role = model.Role
             };
             var result = await _userManager.CreateAsync(user, model.Password);
 
